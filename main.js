@@ -20,7 +20,7 @@ function save() {
       boards,
       LAST_BOARD_ID,
       LAST_COLUMN_ID,
-      LAST_NODE_ID,
+      LAST_NODE_ID,TEXTURE
     })
   )
 }
