@@ -1,0 +1,128 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #000;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.board {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.texture {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.4;
+}
+
+.col {
+  width: 100%;
+  border: 1px solid #c0c0c0;
+}
+
+.colHeader {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid #494848;
+  font-weight: 600;
+}
+.colBody {
+  padding: 10px;
+  height: 800px;
+  position: relative;
+}
+
+.node {
+  min-width: 100px;
+  min-height: 50px;
+  aspect-ratio: 2 / 1;
+  position: absolute;
+  resize: horizontal;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  cursor: grab;
+  padding: 10px;
+  box-shadow: 5px 2px 2px #21212180;
+}
+
+.node > div {
+  display: block;
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  user-select: none;
+}
+
+.modal {
+  width: 70%;
+  max-width: 500px;
+  padding: 0;
+  border: none;
+  box-shadow: #595959 2px 2px 5px 2px;
+  z-index: 1000;
+}
+
+.modal::backdrop {
+  background-color: #12121290;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1000;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 10px;
+  margin-bottom: 30px;
+  color: #000;
+  background-color: #fff;
+}
+
+.close-button {
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.close-button:hover {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #ed7e07;
+}
+
+.title {
+  font-size: 30pxe;
+  margin: 20px;
+}
+
+.message {
+  font-size: 18px;
+  margin: 30px 20px;
+}
