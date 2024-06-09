@@ -155,14 +155,18 @@ function createNode(node) {
   nodeElement.style.height = node.height + "px"
 
   nodeElement.ondblclick = () => editNode(node.boardId, node.id)
+  nodeElement.style.fontSize = node.width / 10
 
   new ResizeObserver((e) => {
     node.width = e[0]?.contentRect?.width || node.width
     node.height = e[0]?.contentRect?.height || node.height
+    nodeElement.style.fontSize =
+      Math.min(Math.max(node.width / 10, 14), 20) + "px"
     save()
   }).observe(nodeElement)
 
   nodeElement.addEventListener("dragstart", (e) => dragStart(node, e), false)
+  nodeElement.addEventListener("touchmove", (e) => onTouchDrag(node, e), false)
 
   valueElement.innerText = node.title
   nodeElement.appendChild(valueElement)
@@ -170,6 +174,28 @@ function createNode(node) {
   return nodeElement
 }
 
+function onTouchDrag(node, event) {
+  document.ontouchstart = (e) => {
+    e.preventDefault()
+  }
+  event.stopPropagation()
+
+  if (event.targetTouches.length > 1) {
+    return
+  }
+  const touch = event.targetTouches[0]
+
+  const x = touch.pageX - 50
+  const y = touch.pageY - 50
+
+  node.posX = x
+  node.posY = y
+
+  event.target.style.left = x + "px"
+  event.target.style.top = y + "px"
+
+  save()
+}
 function dragStart(node, event) {
   const style = window.getComputedStyle(event.target, null)
 

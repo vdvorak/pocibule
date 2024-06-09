@@ -59,8 +59,9 @@
   display: grid;
   place-content: center;
   cursor: grab;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 5px 2px 2px #21212180;
+  user-select: none;
 }
 
 .node > div {
@@ -128,17 +129,18 @@
 
 .modal {
   background-color: #000000c5;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
   max-width: 100vw;
-  width: 100vw !important;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .editor {
-  width: 496px;
+  margin: 10px;
+  width: min(100%, 496px);
 
   position: absolute;
   top: 50%;
