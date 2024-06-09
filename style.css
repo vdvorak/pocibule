@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: #000;
   background-color: #fff;
 
@@ -21,6 +20,7 @@
   position: relative;
   background-size: contain;
   background-repeat: no-repeat;
+  border: 1px solid #595959;
 }
 
 .texture {
@@ -53,9 +53,8 @@
 .node {
   min-width: 100px;
   min-height: 50px;
-  aspect-ratio: 2 / 1;
   position: absolute;
-  resize: horizontal;
+  resize: both;
   overflow: hidden;
   display: grid;
   place-content: center;
@@ -125,4 +124,87 @@
 .message {
   font-size: 18px;
   margin: 30px 20px;
+}
+
+.modal {
+  background-color: #000000c5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  max-width: 100vw;
+  width: 100vw !important;
+  height: 100vh;
+}
+
+.editor {
+  width: 496px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 1px 3px 0px #3c40434d, 0px 4px 8px 3px #3c404326;
+  outline: none;
+  z-index: 1000 !important;
+  aspect-ratio: 2 / 1;
+  color: #3c4043;
+}
+
+.editorHeader {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.editorHeader h2 {
+  margin-block: 0;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.editorBody {
+  width: 100%;
+  border: none;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  height: 136px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+  vertical-align: top;
+  padding: 5px;
+}
+
+.editorFooter {
+  display: flex;
+  justify-content: end;
+  padding: 24px;
+  gap: 10px;
+}
+
+.colorPalette {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.color {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.color:hover {
+  box-shadow: 0px 1px 2px 0px #3c40434d, 0px 2px 6px 2px #3c404326;
 }
